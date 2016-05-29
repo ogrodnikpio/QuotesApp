@@ -1,0 +1,17 @@
+#table_wrapper {
+    width: 30%;
+    height: 50%;
+    float: left;
+}
+#table_div{
+    width: 50%;
+    margin: 0 auto;
+}
+#curve_chart {
+    margin-left: 30%;
+    height: 50%;
+}
+#container {
+    width: 100%;
+    height: 100%;
+}
