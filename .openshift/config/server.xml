@@ -44,6 +44,13 @@
               description="User database that can be updated and saved"
               factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
               pathname="conf/tomcat-users.xml" />
+
+    <Resource name="jdbc/MySQLDS"
+              url="jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/${env.OPENSHIFT_APP_NAME}"
+              driverClassName="com.mysql.jdbc.Driver" username="${env.OPENSHIFT_MYSQL_DB_USERNAME}"
+              password="${env.OPENSHIFT_MYSQL_DB_PASSWORD}"
+              auth="Container" type="javax.sql.DataSource" maxIdle="5" maxActive="20" maxWait="10000"/>
+
   </GlobalNamingResources>
 
   <!-- A "Service" is a collection of one or more "Connectors" that share
