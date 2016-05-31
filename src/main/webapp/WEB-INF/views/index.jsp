@@ -19,7 +19,7 @@
 				var data = google.visualization.arrayToDataTable([
 					['Date','Value'],
 					<c:forEach items="${quotes}" var="entry">
-					[ new Date('${entry.quoteDate}'), ${entry.quoteValue} ],
+					[ new Date(${entry.quoteDate}), ${entry.quoteValue} ],
 					</c:forEach>
 				]);
 				var options = {
@@ -36,14 +36,14 @@
 				data.addColumn('number', 'Quote Value');
 				data.addRows([
 					<c:forEach items="${quotes}" var="entry">
-					[ new Date('${entry.quoteDate}'), ${entry.quoteValue} ],
+					[ new Date(${entry.quoteDate}), ${entry.quoteValue} ],
 					</c:forEach>
 				]);
 				var options = {
 					width: '100%',
 					height: '100%',
 					page: 'enable',
-					pageSize: 20
+					pageSize: 18
 
 				}
 				var tableDraw = new google.visualization.Table(document.getElementById('table_div'));

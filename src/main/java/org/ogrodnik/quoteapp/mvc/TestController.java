@@ -1,6 +1,7 @@
 package org.ogrodnik.quoteapp.mvc;
 
 import org.ogrodnik.quoteapp.domain.Quote;
+import org.ogrodnik.quoteapp.domain.QuoteLongDate;
 import org.ogrodnik.quoteapp.repo.QuoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -49,7 +51,12 @@ public class TestController {
                 abc =repository.findByQuotes2(dateFormatted,dateFormatted2);
             else
                 abc = repository.findByQuotes2(dateFormatted2, dateFormatted);
-            model.addAttribute("quotes",abc);
+            List<QuoteLongDate> wynik = new ArrayList<QuoteLongDate>();
+            for (Quote q : abc){
+                QuoteLongDate adding = new QuoteLongDate(q);
+                wynik.add(adding);
+            }
+            model.addAttribute("quotes",wynik);
             return "index";
             //return "redirect:/quotes/date?date="+newMember.getDate()+"&date2="+newMember.getDate2();
         }
